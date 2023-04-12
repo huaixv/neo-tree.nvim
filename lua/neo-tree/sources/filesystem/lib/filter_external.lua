@@ -201,9 +201,9 @@ M.filter_files_external = function(
     elseif glob ~= nil and full_path then
       local words = utils.split(glob, " ")
       regex = ".*" .. table.concat(words, ".*") .. ".*"
-      append("-regextype", "sed", "-regex", regex)
+      append("-regextype", "sed", "-regex", path .. regex)
     elseif regex ~= nil then
-      append("-regextype", "sed", "-regex", regex)
+      append("-regextype", "sed", "-regex", path .. regex)
     end
     append_find_args()
   elseif cmd == "fzf" then
